@@ -1,7 +1,114 @@
-<?php session_start(); ?>
+<?php session_start(); 
+$bmi = 0;
+if (isset($_POST["tall"]) and $_POST["weight"]!="")
+{
+	$t = $_POST["tall"];
+	$w = $_POST["weight"];
+	$t = $t/100;
+	$bmi = $w/($t*$t);
+	$bmi = round($bmi,2);
+}
+$bmr = 0;
+if (isset($_POST["tall"]) and $_POST["weight"]!="" and $_POST["age"]!="") 
+{
+	$t = $_POST["tall"];
+	$w = $_POST["weight"];
+	$a = $_POST["age"];
+	$g = $_POST["gender"];
+	$bmr=9.99*$w+6.25*$t-4.92*$a+(166*$g-161);
+}
+$total = 0;
+if (isset($_POST["kcal_item1"]) and $_POST["kcal_item1"]!="")
+{
+$k1 = $_POST["kcal_item1"];
+$q1 = $_POST["cal1"];
+$total = $total+($k1*$q1);
+}
+if (isset($_POST["kcal_item4"]) and $_POST["kcal_item4"]!="")
+{
+$k2 = $_POST["kcal_item4"];
+$q2 = $_POST["cal2"];
+$total = $total+($k2*$q2);
+}
+if (isset($_POST["kcal_item2"]) and $_POST["kcal_item2"]!="")
+{
+$k3 = $_POST["kcal_item2"];
+$q3 = $_POST["cal3"];
+$total = $total+($k3*$q3);
+}
+if (isset($_POST["kcal_item5"]) and $_POST["kcal_item4"]!="")
+{
+$k4 = $_POST["kcal_item5"];
+$q4 = $_POST["cal4"];
+$total = $total+($k4*$q4);
+}
+if (isset($_POST["kcal_item7"]) and $_POST["kcal_item4"]!="")
+{
+$k5 = $_POST["kcal_item7"];
+$q5 = $_POST["cal5"];
+$total = $total+($k5*$q5);
+}
+if (isset($_POST["kcal_item14"]) and $_POST["kcal_item4"]!="")
+{
+$k6 = $_POST["kcal_item14"];
+$q6 = $_POST["cal6"];
+$total = $total+($k6*$q6);
+}
+if (isset($_POST["kcal_item3"]) and $_POST["kcal_item4"]!="")
+{
+$k7 = $_POST["kcal_item3"];
+$q7 = $_POST["cal7"];
+$total = $total+($k7*$q7);
+}
+if (isset($_POST["kcal_item6"]) and $_POST["kcal_item4"]!="")
+{
+$k8 = $_POST["kcal_item6"];
+$q8 = $_POST["cal8"];
+$total = $total+($k8*$q8);
+}
+if (isset($_POST["kcal_item8"]) and $_POST["kcal_item4"]!="")
+{
+$k9 = $_POST["kcal_item8"];
+$q9 = $_POST["cal9"];
+$total = $total+($k9*$q9);
+}
+if (isset($_POST["kcal_item11"]) and $_POST["kcal_item4"]!="")
+{
+$k10 = $_POST["kcal_item11"];
+$q10 = $_POST["cal10"];
+$total = $total+($k10*$q10);
+}
+if (isset($_POST["kcal_item9"]) and $_POST["kcal_item4"]!="")
+{
+$k11 = $_POST["kcal_item9"];
+$q11 = $_POST["cal11"];
+$total = $total+($k11*$q11);
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    <link rel="shortcut icon" href="https://letswritetw.github.io/letswritetw/dist/img/logo_512.png"/>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Tag Manager-->
+    <script>
+	function clickMe(){
+	var result ="<?php php_func();?>";
+	document.getElementById("changeText").innerHTML=result;
+	}
+	function chtext(){
+		echo ($_POST["tall"]);
+		document.getElementById("bmi_t").innerText=$_POST["weight"]*$_POST["tall"];
+	}
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PGQ9WQT');
+    </script>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -15,8 +122,9 @@
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+		<link rel="stylesheet" href="style.css">
     </head>
-    <body id="page-top">
+    <body id="page-top" onload="show();">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">
@@ -32,6 +140,7 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">動作辨別</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">bmi計算器</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">卡路里計算</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#bmr">基礎代謝計算器</a></li>
                 </ul>
             </div>
         </nav>
@@ -61,7 +170,38 @@
             <section class="resume-section" id="experience">
                 <div class="resume-section-content">
                     <h2 class="mb-5">運動規劃</h2>
-                    
+                    <div >
+					<form action="schedule.php" method="post">
+						<input type="text" name="sport" placeholder="請輸入運動" size="35" maxlength="35">
+						<input type="text" name="time" placeholder="請輸入時間" size="35" maxlength="35">
+					<input type="submit" value="確認"/>				
+					</form>	
+					<button onclick="clickMe()"> 查看規劃 </button>	
+					<p id="changeText">尚無規劃</p>
+					<?php
+					function php_func(){
+						require('config.php');
+						$account = $_COOKIE['ac'];
+						$conn=mysqli_connect($db_host,$db_user,$db_pass,$db_name);
+						$sql = "SELECT name,sport,time FROM schedule where name='$account'"; //查詢語句--查詢資料庫表
+						$result = mysqli_query($conn, $sql);
+						if (mysqli_num_rows($result) > 0) {
+							while ($row = mysqli_fetch_assoc($result)) {
+								echo  "ID:" . ($row["name"]) . "	運動:" . ($row["sport"]) . "	次數/秒數:" . ($row["time"]),"<br>";
+							}
+						} 
+						mysqli_close($conn); 
+					}
+					?> 
+					<div class="container">
+						<span id="time"></span>
+						<button class="btn" type="button">開始</button>
+						<button class="btn" type="button">暫停</button>
+						<button class="btn" type="button">清除</button>
+					</div>
+					</div>
+					<p6>按下s可以「開始」或「暫停」</p>
+					<p6>按下c可以「清除」</p>
                 </div>
             </section>
             <hr class="m-0" />
@@ -69,12 +209,51 @@
             <section class="resume-section" id="education">
                 <div class="resume-section-content">
                     <h2 class="mb-5">健身資訊</h2>
-                    <video width="400" controls>
-                    <source src="video1.mp4" type="video/mp4">
-                    Your browser does not support HTML video.
-                    </video>
-                    <a href="https://www.youtube.com/watch?v=20uf1EcGqjY" target="_blank"></a>
-                    <br>15分鐘高强度全身肌肉徒手訓練,無需器材又能在家做的運動｜有效針對全身肌肉的訓練｜男女都適合的訓練【健身運動】</br>
+					<img src='youtuber.png'>shuaisoserious👍👎
+					<input type="button" value="點擊前往觀看影片" onclick="location.href='ytb1.php'">
+					<br>
+					<img src='yt2.png'>Kun阿錕👍👎
+					<input type="button" value="點擊前往觀看影片" onclick="location.href='ytb2.php'">
+					<br>
+					<img src='yt3.png'>咪咪愛運動 Mimi Sparkle<br>
+					<input type="button" value="點擊前往觀看影片" onclick="location.href='ytb3.php'">
+					👍動作很簡單，滿容易上手，滿多動作在家也可以輕鬆！
+					影片會倒數計時，用聽的也知道何時該休息
+					<br>
+					👎沒有過多的動作解釋，就直接開始做動作了（如果是初次運動的人，怕不知怎麼出力導致受傷）
+					而且會覺得有點像是在看她運動，好似跟她的連結度偏低
+					但後來有幾支影片她會另外配音，加上一些加油加油的鼓勵
+					<br>
+					<img src='yt4.png'>Coffee林芊妤<br>
+					<input type="button" value="點擊前往觀看影片" onclick="location.href='ytb4.php'">
+					👍部分動作都不需要穿鞋，跳動也不多，很適合居家運動是瑜珈結合健身動作，會大爆汗，但做完很有成就感，感覺用到全身的肌肉
+					<br>
+					👎都是廣東話需要一直看著畫面，但有可能動作不對，或是沒法認真感受肌肉出力…所以建議先看一遍她的影片，然後做筆記和改成可以做得來的動作
+					<br>
+					<img src='yt5.png'>May Fit<br>
+					<input type="button" value="點擊前往觀看影片" onclick="location.href='ytb5.php'">
+					👍也滿多影片是不需要穿鞋的，徒手訓練和使用啞鈴的健身影片都有
+					她的影片選擇滿多元，做完隔天屁股、下身爆痠！而且她也會分享吃貨一枚，如何在大吃過後把肚子瘦回去
+					<br>
+					👎會有些不屬於健身的影片，只是想要找個運動影片來健身的人………可以只看她的健身影片
+					<br>
+					<img src='yt6.png'>Candice Sweat Life<br>
+					<input type="button" value="點擊前往觀看影片" onclick="location.href='ytb6.php'">
+					👍健身影片教學很多元，穿鞋的、不用穿鞋的健身影片都有
+					而且很多破解初學者迷思的教學影片，很適合初學者好好瀏覽
+					<br>
+					👎個人覺得沒有
+					<br>
+					<img src='yt7.png'>emi wong <br>
+					<input type="button" value="點擊前往觀看影片" onclick="location.href='ytb7.php'">
+					👍很多不用穿鞋，可在家健身的運動組合
+					而且一支影片就長達30分鐘，可以讓你累得嫑嫑的
+					英文解說還算聽得懂，語氣、速度滿適合平常英文有點程度的人
+					她會在下一個動作來臨之前，先讓你看接下來的動作，讓人有心理準備
+					<br>
+					👎速度偏快，雖然我覺得健身影片好像都這樣…
+					剛開始運動的人很難跟上，或是有點為了要跟上速度，反而害動作沒做對
+					跟不上也沒關西可以慢慢跟上,動作做對最重要!!!
                 </div>
             </section>
             <hr class="m-0" />
@@ -82,7 +261,53 @@
             <section class="resume-section" id="skills">
                 <div class="resume-section-content">
                     <h2 class="mb-5">動作識別</h2>
-                    
+					<noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGQ9WQT" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+    <div class="container">  
+      <section class="button-box">
+        <input id="customFileInput" type="file" accept="video/*,image/*">
+        <label for="customFileInput" class="button-primary">
+        </label>
+      </section>
+
+      <section class="info-box">
+        <p>檔名：<span id="file_name"></span></p>
+        <p>類型：<span id="file_type"></span></p>
+        <p>大小：<span id="file_size"></span></p>
+        <p>最後更新時間：<span id="file_time"></span></p>
+        <p>縮圖：</p>
+        <figure>
+          <img id="file_thumbnail">
+        </figure>
+      </section>
+      
+    </div>
+    
+    <script>
+    
+      var inputFile = document.getElementById('customFileInput');
+
+      inputFile.addEventListener('change', function(e) {
+
+        var fileData = e.target.files[0]; // 檔案資訊
+        var fileName = fileData.name; // 檔案名稱
+        var fileType = fileData.type; // 檔案類型
+        var fileSize = Math.floor(fileData.size * 0.001); // 檔案大小轉成kb
+        var fileTime = fileData.lastModifiedDate;
+
+        console.log(fileData); // 用開發人員工具可看到資料
+
+        document.getElementById('file_name').innerText = fileName;
+        document.getElementById('file_type').innerText = fileType;
+        document.getElementById('file_size').innerText = fileSize + 'kb';
+        document.getElementById('file_time').innerText = fileTime;
+        document.getElementById('file_thumbnail').src = URL.createObjectURL(fileData);
+
+      }, false);
+
+    </script>
                 </div>
             </section>
             <hr class="m-0" />
@@ -95,15 +320,14 @@
                     <p>例如：一個52公斤的人，身高是155公分，則BMI為 :52(公斤)/1.552 ( 公尺2 )= 21.6</p>
                     <br>
                     <p>體重正常範圍為  BMI=18.5～24</p>
-                    <form action="bmi.php" method="post">
+                    <form action="" method="post">
 　                  體重(kg): <input type="text" name="weight" />
                     身高(cm):<input type="text" name="tall" />
-　                  <input type="submit" value="確認"/>
+　                  <input  type="submit" value="確認"/>
                     </form> 
-					<?php					
-					echo $_SESSION['BMI'];
-					echo '<br /><a href="bmi.php"></a>';
-					?>
+					<p >您的bmi=
+					<?php echo $bmi;?>
+					</p>
                 </div>
             </section>
             <hr class="m-0" />
@@ -111,7 +335,7 @@
             <section class="resume-section" id="awards">
                 <div class="resume-section-content">
                     <h2 class="mb-5">卡路里計算</h2>
-            <form action="calories.php" name="myform.php" method="post">
+            <form action="" name="myform.php" method="post">
             <table border="0" width="100%" cellpadding="4" cellspacing="0">
             <tbody><tr><td><font size="2">五穀根莖類</font></td><td><font size="2">份量</font></td><td><font size="2">奶製品</font></td><td><font size="2">份量</font></td></tr>
             <tr>
@@ -507,9 +731,13 @@
 <font size="2">
 <input type="submit" value="計算">
 </font>
+</form>
+
 <p></p><p>
 你的熱量攝取量:
-0<br>
+
+<?php echo $total?> 
+<br>
 <br>
 簡易食品代換算法:<br>
 <br>
@@ -520,12 +748,45 @@
 5.蔬菜類:各類蔬菜1碗算1份<br>
 6.油脂類:一湯匙油等於一片乳酪
 </p><p>
-</p></form>
+</p>
 </section>
         </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+		</div>
+            </section>
+            <hr class="m-0" />
+            <!-- Interests-->
+            <section class="resume-section" id="bmr">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">基礎代謝率計算器(bmr)</h2>
+                    <p>計算公式(Mifflin-St Jeor formula) 9.99 × 體重 + 6.25 × 身高 - 4.92 × 年齡 +(166 × 性別 (男 1、女 0) - 161) = 基礎代謝率 (BMR)</p>
+                    <br>
+                    <p>指人體在清醒而極度安靜情況下，例如：靜臥的狀態，不受精神緊張，肌肉活動，食物和環境溫度等因素影響時，所消耗的最低熱量，基礎代謝率會隨著年紀增加或體重減輕而降低，會隨著肌肉量增加而上升。</p>
+                    <form action="" method="post">
+					性別(男生打1女生打0):<input type="text" name="gender"><br>
+					年齡(age):<input type="text" name="age"/><br>
+					體重(kg):<input type="text" name="weight"/><br>
+                    身高(cm):<input type="text" name="tall" /><br>
+					<input  type="submit" value="確認"/>
+                    </form> 
+					<p >基礎代謝率(BMR)計算結果 : 
+					<?php echo $bmr;?>
+					</p>
+					每日總熱量消耗 (TDEE)<br>
+					總熱量消耗 (TDEE) 是指人每天日常行動所消耗的熱量，因每個人身高、體重、肌肉量、活動量都不同而有差異。營養師建議，如果想要減重，一天的攝取熱量就需要低於總熱量消耗。<br>
+					坐著工作 (幾乎不運動)<br>
+					BMR x 1.2 = <?php echo $bmr*1.2; ?><br>
+					偶爾運動 (輕鬆運動每週 1-3 天)<br>
+					BMR x 1.375 = <?php echo $bmr*1.375; ?><br>
+					每天運動 (高強度運動每週 6-7 天)<br>
+					BMR x 1.72 = <?php echo $bmr*1.72; ?><br>
+					強度運動 (長時間運動或體力勞動工作)<br>
+					BMR x 1.9 = <?php echo $bmr*1.9;?> <br>
+                </div>
+            </section>
     </body>
+	<script src="script.js"></script>
 </html>
