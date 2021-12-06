@@ -38,7 +38,7 @@ line_chart_data = result['grade']
 line_chart_data = pd.DataFrame(line_chart_data)
 line_chart_data.set_index(result['times'],inplace=True)
 line_chart = st.line_chart(line_chart_data,use_container_width = True)
-x = result['time']
+x = result['times']
 y = result['grade']
 p=figure(
 title='辨識結果',
