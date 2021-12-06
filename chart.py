@@ -29,12 +29,11 @@ def conn(name, pword, db, mysqldb = None, cursor = None):
     return mysqldb, cursor
 mysqldb,cursor = conn(username,password,database)
 
-d = st.date_input("When's your birthday",
-datetime.date(2019, 7, 6))
-st.write('Your birthday is:', d)
+d = st.date_input("請選擇日期")
 
 #sql = "SELECT * FROM Identify "
-sql = '''SELECT*FROM Identify where exercise='二頭彎舉';'''
+sql = '''SELECT*FROM Identify where exercise='二頭彎舉' and TIME='''+ str(d)
+st.write(sql)
 cursor.execute(sql)
 result=cursor.fetchall()
 result= pd.DataFrame(result)
