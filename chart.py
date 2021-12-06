@@ -3,7 +3,7 @@ import pandas as pd
 username = 'root'
 password = 'nuuCSIE406'
 database = 'gordon'
-host = 'justtry.406.csie.nuu.edu.tw'
+host = 'justtry.406.csie.nuu.edu.tw:33060'
 import mysql.connector as mysql
 
 def conn(name, pword, db, mysqldb = None, cursor = None):
