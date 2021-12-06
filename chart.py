@@ -26,8 +26,12 @@ def conn(name, pword, db, mysqldb = None, cursor = None):
             print('資料庫名稱: ', db)
             cursor = mysqldb.cursor()
     return mysqldb, cursor
-list123=[1,2]
 mysqldb,cursor = conn(username,password,database)
+
+d = st.date_input("When's your birthday",
+datetime.date(2019, 7, 6))
+st.write('Your birthday is:', d)
+
 #sql = "SELECT * FROM Identify "
 sql = '''SELECT*FROM Identify where exercise='二頭彎舉';'''
 cursor.execute(sql)
