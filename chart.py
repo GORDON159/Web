@@ -34,8 +34,11 @@ result=cursor.fetchall()
 result= pd.DataFrame(result)
 result.columns=['exercise','grade','suggest','flag','TIME','name','times']
 line_chart_data = result['grade']
-st.caption('分數')
 line_chart_data = pd.DataFrame(line_chart_data)
 line_chart_data.set_index(result['times'],inplace=True)
+line_chart_data=figure(
+title='辨識結果',
+x_axis_label='次數',
+y_axis_label='分數')
 line_chart = st.line_chart(line_chart_data,use_container_width = True)
-st.markdown('<center>次數</center>',unsafe_allow_html=True)
+
