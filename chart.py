@@ -1,14 +1,28 @@
 import streamlit as st
 import pandas as pd
+import pymysql
 
-# 設定網頁標題
-st.title('My App')
 
-# 加入網頁文字內容
-st.write("My first app")
-
-# 加入 pandas 資料表格
-st.write(pd.DataFrame({
-    'first column': [1, 2, 3, 4],
-    'second column': [10, 20, 30, 40]
-}))
+dbhost='justtry.406.csie.nuu.edu.tw'
+dbuser='root'
+dbport=33060
+dbpass='nuuCSIE406'
+dbname='gordon'
+try:
+    db = pymysql.connect(host=dbhost,user=dbuser,port=dbport,password=dbpass,database=dbname)
+    print("連結成功")
+    cursor = db.cursor()
+except pymysql.Error as e:
+    print("連線失敗"+str(e))
+#sql = "SELECT * FROM Identify "
+sql = '''SELECT*FROM Identify where exercise='二頭彎舉';'''
+try:
+    cursor.execute(sql)
+    result=cursor.fetchall()
+    result= pd.DataFrame(result)
+    result.columns=['exercise','grade','suggest','flag','TIME','name']
+    line_chart_data = result['grade']
+    line_chart_data = pd.DataFrame(line_chart_data)
+    line_chart = st.line_chart(line_chart_data)
+except:
+    print('幹')
