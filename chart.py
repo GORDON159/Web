@@ -34,5 +34,5 @@ result= pd.DataFrame(result)
 result.columns=['exercise','grade','suggest','flag','TIME','name']
 line_chart_data = result['grade']
 line_chart_data = pd.DataFrame(line_chart_data)
-line_chart_data.set_index(range(len(result['grade'])),inplace=True)
+line_chart_data.set_index(range(2),inplace=True)
 line_chart = st.line_chart(line_chart_data)
