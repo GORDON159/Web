@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from bokeh.plotting import figure
 username = 'root'
 password = 'nuuCSIE406'
 database = 'gordon'
@@ -36,9 +37,12 @@ result.columns=['exercise','grade','suggest','flag','TIME','name','times']
 line_chart_data = result['grade']
 line_chart_data = pd.DataFrame(line_chart_data)
 line_chart_data.set_index(result['times'],inplace=True)
-line_chart_data=figure(
+line_chart = st.line_chart(line_chart_data,use_container_width = True)
+x = result['times']
+y = result['grade']
+p=figure(
 title='辨識結果',
 x_axis_label='次數',
 y_axis_label='分數')
-line_chart = st.line_chart(line_chart_data,use_container_width = True)
-
+p.line(x, y, legend_label='Trend', line_width=2)
+st.bokeh_chart(p, use_container_width=True)
