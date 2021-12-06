@@ -32,8 +32,8 @@ sql = '''SELECT*FROM Identify where exercise='二頭彎舉';'''
 cursor.execute(sql)
 result=cursor.fetchall()
 result= pd.DataFrame(result)
-result.columns=['exercise','grade','suggest','flag','TIME','name']
+result.columns=['exercise','grade','suggest','flag','TIME','name','times']
 line_chart_data = result['grade']
 line_chart_data = pd.DataFrame(line_chart_data)
-line_chart_data.set_index(list123,inplace=True)
+line_chart_data.set_index(result['times'],inplace=True)
 line_chart = st.line_chart(line_chart_data)
