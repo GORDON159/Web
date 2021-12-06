@@ -31,17 +31,18 @@ mysqldb,cursor = conn(username,password,database)
 
 d = st.date_input("請選擇日期")
 
-#sql = "SELECT * FROM Identify "
-sql = '''SELECT*FROM Identify where exercise='二頭彎舉' and TIME='%s';'''%(str(d))
-st.write(sql)
-cursor.execute(sql)
-result=cursor.fetchall()
-result= pd.DataFrame(result)
-result.columns=['exercise','grade','suggest','flag','TIME','name','times']
-x = result['times']
-y = result['grade']
-p=figure(
-x_axis_label='次數',
-y_axis_label='分數')
-p.line(x, y, legend_label='Score', line_width=2)
-st.bokeh_chart(p, use_container_width=False)
+try:
+    sql = '''SELECT*FROM Identify where exercise='二頭彎舉' and TIME='%s';'''%(str(d))
+    cursor.execute(sql)
+    result=cursor.fetchall()
+    result= pd.DataFrame(result)
+    result.columns=['exercise','grade','suggest','flag','TIME','name','times']
+    x = result['times']
+    y = result['grade']
+    p=figure(
+    x_axis_label='次數',
+    y_axis_label='分數')
+    p.line(x, y, legend_label='Score', line_width=2)
+    st.bokeh_chart(p, use_container_width=False)
+except:
+    st.write("沒有資料")
