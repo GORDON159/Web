@@ -32,7 +32,7 @@ mysqldb,cursor = conn(username,password,database)
 d = st.date_input("請選擇日期")
 
 #sql = "SELECT * FROM Identify "
-sql = '''SELECT*FROM Identify where exercise='二頭彎舉' and TIME='''+ str(d)
+sql = '''SELECT*FROM Identify where exercise='二頭彎舉' and TIME='%s';'''%(str(d))
 st.write(sql)
 cursor.execute(sql)
 result=cursor.fetchall()
