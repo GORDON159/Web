@@ -3,7 +3,8 @@ import pandas as pd
 username = 'root'
 password = 'nuuCSIE406'
 database = 'gordon'
-host = 'justtry.406.csie.nuu.edu.tw:33060'
+host = 'justtry.406.csie.nuu.edu.tw'
+
 import mysql.connector as mysql
 
 def conn(name, pword, db, mysqldb = None, cursor = None):
@@ -14,7 +15,8 @@ def conn(name, pword, db, mysqldb = None, cursor = None):
                 password = pword,
                 database = db,
                 raise_on_warnings = True,
-                charset = 'utf8'
+                charset = 'utf8',
+                port = '33060'
             )
     except Exception as e:
         print(e)
