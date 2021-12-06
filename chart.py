@@ -40,5 +40,5 @@ p=figure(
 title='辨識結果',
 x_axis_label='次數',
 y_axis_label='分數')
-p.line(x, y, legend_label='Trend', line_width=2)
+p.line(x, y, legend_label='Score', line_width=2)
 st.bokeh_chart(p, use_container_width=False)
