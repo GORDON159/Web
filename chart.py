@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import pymysql
 username = 'root'
 password = 'nuuCSIE406'
 database = 'gordon'
