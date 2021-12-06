@@ -34,10 +34,6 @@ cursor.execute(sql)
 result=cursor.fetchall()
 result= pd.DataFrame(result)
 result.columns=['exercise','grade','suggest','flag','TIME','name','times']
-line_chart_data = result['grade']
-line_chart_data = pd.DataFrame(line_chart_data)
-line_chart_data.set_index(result['times'],inplace=True)
-line_chart = st.line_chart(line_chart_data,use_container_width = True)
 x = result['times']
 y = result['grade']
 p=figure(
