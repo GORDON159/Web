@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HW</title>
+    <script src = "scr.js"></script>
+</head>
+
+<body>
+
+
+        <h2><span class="target">輸入生日</span></h2>
+
+ 
+          <form name = "input" method="get">
+            <label for="month">月份:</label>
+            <input type="text" id="month" value=""><br>
+            <label for="day">日期:</label>
+            <input type="text" id="day" value="">
+            <!-- submit 會提交出去 所以type用submit會一閃而過 
+                 button 就只有在本地使用-->
+            <input type="button" value="確定" onclick="cul()">
+          </form>
+          星座:<p id = "ch"></p>
+
+
+</body>
+</html>

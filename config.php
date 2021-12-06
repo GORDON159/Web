@@ -1,6 +1,6 @@
 <?php
-$db_host = 'localhost';
-$db_user = 'gordon';
-$db_pass = '123456';
-$db_name = 'gordon';
+$db_host = 'justtry.406.csie.nuu.edu.tw';
+$db_user = 'root';
+$db_pass = 'nuuCSIE406';
+$db_name = 'gorodn';
 ?>

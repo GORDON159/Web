@@ -9,10 +9,10 @@ if (isset($_POST["tall"]) and $_POST["weight"]!="")
 	$bmi = round($bmi,2);
 }
 $bmr = 0;
-if (isset($_POST["tall"]) and $_POST["weight"]!="" and $_POST["age"]!="") 
+if (isset($_POST["height"]) and $_POST["kg"]!="" and $_POST["age"]!="") 
 {
-	$t = $_POST["tall"];
-	$w = $_POST["weight"];
+	$t = $_POST["height"];
+	$w = $_POST["kg"];
 	$a = $_POST["age"];
 	$g = $_POST["gender"];
 	$bmr=9.99*$w+6.25*$t-4.92*$a+(166*$g-161);
@@ -93,27 +93,11 @@ $total = $total+($k11*$q11);
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google Tag Manager-->
-    <script>
-	function clickMe(){
-	var result ="<?php php_func();?>";
-	document.getElementById("changeText").innerHTML=result;
-	}
-	function chtext(){
-		echo ($_POST["tall"]);
-		document.getElementById("bmi_t").innerText=$_POST["weight"]*$_POST["tall"];
-	}
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PGQ9WQT');
-    </script>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>智慧居家健身</title>
+        <title>智慧居家健身系統</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
@@ -124,23 +108,23 @@ $total = $total+($k11*$q11);
         <link href="css/styles.css" rel="stylesheet" />
 		<link rel="stylesheet" href="style.css">
     </head>
-    <body id="page-top" onload="show();">
+    <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                <span class="d-block d-lg-none">智慧居家健身</span>
+                <span class="d-block d-lg-none">智慧居家健身系統</span>
                 <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="..." /></span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">簡介</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">運動規劃</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#action">主要動作介紹</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">健身資訊</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">動作辨別</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">bmi計算器</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">卡路里計算</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#bmr">基礎代謝計算器</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="login.php">登入或註冊</a><li>
                 </ul>
             </div>
         </nav>
@@ -150,58 +134,47 @@ $total = $total+($k11*$q11);
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
                     <h1 class="mb-0">
-                        智慧居家健身
+                        智慧居家健身系統
                     </h1>
-                    <div class="subheading mb-5">
-                        	 
-                        <a href="mailto:a0918764991@gmail.com">a0918764991@gmail.com</a>
-                    </div>
-                    <p class="lead mb-5">在家就能健身!!</p>
-                    <div class="social-icons">
-                        <a class="social-icon" href="#!"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="social-icon" href="#!"><i class="fab fa-github"></i></a>
-                        <a class="social-icon" href="#!"><i class="fab fa-twitter"></i></a>
-                        <a class="social-icon" href="#!"><i class="fab fa-facebook-f"></i></a>
-                    </div>
+					<font size="5">指導老師:王能中</font><br>
+					<font size="5">組員:李柏寰,鐘子傑,黎凱維,張智棋</font><br>
                 </div>
             </section>
-            <hr class="m-0" />
-            <!-- Experience-->
-            <section class="resume-section" id="experience">
+			<hr class="m-0" />
+            <!-- Interests-->
+            <section class="resume-section" id="action">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">運動規劃</h2>
-                    <div >
-					<form action="schedule.php" method="post">
-						<input type="text" name="sport" placeholder="請輸入運動" size="35" maxlength="35">
-						<input type="text" name="time" placeholder="請輸入時間" size="35" maxlength="35">
-					<input type="submit" value="確認"/>				
-					</form>	
-					<button onclick="clickMe()"> 查看規劃 </button>	
-					<p id="changeText">尚無規劃</p>
-					<?php
-					function php_func(){
-						require('config.php');
-						$account = $_COOKIE['ac'];
-						$conn=mysqli_connect($db_host,$db_user,$db_pass,$db_name);
-						$sql = "SELECT name,sport,time FROM schedule where name='$account'"; //查詢語句--查詢資料庫表
-						$result = mysqli_query($conn, $sql);
-						if (mysqli_num_rows($result) > 0) {
-							while ($row = mysqli_fetch_assoc($result)) {
-								echo  "ID:" . ($row["name"]) . "	運動:" . ($row["sport"]) . "	次數/秒數:" . ($row["time"]),"<br>";
-							}
-						} 
-						mysqli_close($conn); 
-					}
-					?> 
-					<div class="container">
-						<span id="time"></span>
-						<button class="btn" type="button">開始</button>
-						<button class="btn" type="button">暫停</button>
-						<button class="btn" type="button">清除</button>
-					</div>
-					</div>
-					<p6>按下s可以「開始」或「暫停」</p>
-					<p6>按下c可以「清除」</p>
+					<h2 class="mb-5">主要動作介紹</h2>
+					<tr>
+					<td><img src="action1.png" with="600" heigh="400" alt="二頭彎舉"></td>
+					<td><p>啞鈴二頭彎舉，Dumbbell Biceps Curl，指的是手握啞鈴進行的啞鈴彎舉，是針對二頭肌的訓練動作 (二頭肌訓練全攻略)
+雖然啞鈴彎舉是鍛鍊二頭肌的訓練動作，但在啞鈴彎舉過程中的穩定肌群也不少，是二頭肌的必練經典動作之一，重力和施力方向呈現垂直。啞鈴彎舉主要訓練的肌群是二頭肌，前三角肌、斜方肌穩定，前臂輔助
+另外，還有經常被忽略的，全身收緊做穩定，核心腹部繃緊，身體保持穩定不晃動。</p>
+					</td>
+					</tr>
+					<tr>
+					<td><img src="action2.png" with="600" heigh="400" alt="split squat"></td>
+					<td><p>中文名:保加利亞分腿蹲<br>主要作用肌群:股四頭肌<br>協同作用肌群:臀部肌群、腿後肌群、比目魚肌、腓腸肌<br>
+							功用:鍛鍊股四頭肌除了讓腳更有力預防受傷外，人所有雙腳運動模式幾乎都是分腿的姿勢，對於運動的功能性及平衡有益。
+						<br>1.站在板凳前，雙腳與肩同寬。<br>2.其中一腳向後擺在板凳上
+						<br>3.膝蓋微微彎曲，身體保持正直，頭朝前方。<br>4.吐氣，慢慢蹲低，身體盡可能下沉。
+						<br>5.可進行10~15次再換腳，進行3組</p></td>
+					</tr>
+					<tr>
+					<td><img src="action3.jpg" with="600" heigh="400" alt="硬舉"></td>
+					<td><p>硬舉（Deadlift）是人類可以舉起最大重量的動作，正確的硬舉將能夠鍛鍊全身的肌群，而不單只是腿部訓練。
+						硬舉的好處，除了可以強化腿部後側肌群，對於背肌和核心肌群的強化同樣有幫助。
+						硬舉動作參與肌群包含臀大肌、膕繩肌、股四頭肌、小腿肌群、下半身肌群等幾乎都有參與，穩定的肌群則有背肌與腹肌。</p></td>
+					</tr>
+					<tr>
+					<td><img src="action4.jpg" with="600" heigh="400" alt="平舉"></td>
+					<td><p>啞鈴側平舉這個動作最主要的是能夠鍛煉三角肌中束的，首先站直後，盡量保持上半挺直，不要彎腰駝背，糾正好了之後，手臂在往上舉的時候，一定要把注意力集中在兩個手肘上，而且手肘和手臂可不是一樣的，這個也是要好好去分一下的。
+					啞鈴側平舉這項訓練最主要的鍛煉部位就是三角肌這個部位，而且他有一個優點，就是不會鍛煉到其他的部位，不容易借力，主要鍛煉止於肱骨的三角肌。<br>
+					啞鈴側平舉注意事項<br>
+					1. 不能聳起，否則負重不能集中到肩部。<br>
+					2. 不要晃動身體，以免慣性影響效率。<br>
+					3. 鍛煉的過程中，不要貪圖重量。側平舉這樣的動作無法用大重量進行！<br>
+					</p></tr>
                 </div>
             </section>
             <hr class="m-0" />
@@ -254,60 +227,6 @@ $total = $total+($k11*$q11);
 					👎速度偏快，雖然我覺得健身影片好像都這樣…
 					剛開始運動的人很難跟上，或是有點為了要跟上速度，反而害動作沒做對
 					跟不上也沒關西可以慢慢跟上,動作做對最重要!!!
-                </div>
-            </section>
-            <hr class="m-0" />
-            <!-- Skills-->
-            <section class="resume-section" id="skills">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">動作識別</h2>
-					<noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGQ9WQT" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
-
-    <div class="container">  
-      <section class="button-box">
-        <input id="customFileInput" type="file" accept="video/*,image/*">
-        <label for="customFileInput" class="button-primary">
-        </label>
-      </section>
-
-      <section class="info-box">
-        <p>檔名：<span id="file_name"></span></p>
-        <p>類型：<span id="file_type"></span></p>
-        <p>大小：<span id="file_size"></span></p>
-        <p>最後更新時間：<span id="file_time"></span></p>
-        <p>縮圖：</p>
-        <figure>
-          <img id="file_thumbnail">
-        </figure>
-      </section>
-      
-    </div>
-    
-    <script>
-    
-      var inputFile = document.getElementById('customFileInput');
-
-      inputFile.addEventListener('change', function(e) {
-
-        var fileData = e.target.files[0]; // 檔案資訊
-        var fileName = fileData.name; // 檔案名稱
-        var fileType = fileData.type; // 檔案類型
-        var fileSize = Math.floor(fileData.size * 0.001); // 檔案大小轉成kb
-        var fileTime = fileData.lastModifiedDate;
-
-        console.log(fileData); // 用開發人員工具可看到資料
-
-        document.getElementById('file_name').innerText = fileName;
-        document.getElementById('file_type').innerText = fileType;
-        document.getElementById('file_size').innerText = fileSize + 'kb';
-        document.getElementById('file_time').innerText = fileTime;
-        document.getElementById('file_thumbnail').src = URL.createObjectURL(fileData);
-
-      }, false);
-
-    </script>
                 </div>
             </section>
             <hr class="m-0" />
@@ -768,8 +687,8 @@ $total = $total+($k11*$q11);
                     <form action="" method="post">
 					性別(男生打1女生打0):<input type="text" name="gender"><br>
 					年齡(age):<input type="text" name="age"/><br>
-					體重(kg):<input type="text" name="weight"/><br>
-                    身高(cm):<input type="text" name="tall" /><br>
+					體重(kg):<input type="text" name="kg"/><br>
+                    身高(cm):<input type="text" name="height" /><br>
 					<input  type="submit" value="確認"/>
                     </form> 
 					<p >基礎代謝率(BMR)計算結果 : 
@@ -787,6 +706,7 @@ $total = $total+($k11*$q11);
 					BMR x 1.9 = <?php echo $bmr*1.9;?> <br>
                 </div>
             </section>
+	<section class="resume-section" id="">
     </body>
 	<script src="script.js"></script>
 </html>
