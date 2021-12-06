@@ -1,19 +1,30 @@
 import streamlit as st
 import pandas as pd
 import pymysql
+username = 'root'
+password = 'nuuCSIE406'
+database = 'gordon'
+host = 'justtry.406.csie.nuu.edu.tw'
+import mysql.connector as mysql
 
-
-dbhost='justtry.406.csie.nuu.edu.tw'
-dbuser='root'
-dbport=33060
-dbpass='nuuCSIE406'
-dbname='gordon'
-try:
-    db = pymysql.connect(host=dbhost,user=dbuser,port=dbport,password=dbpass,database=dbname)
-    print("連結成功")
-    cursor = db.cursor()
-except pymysql.Error as e:
-    print("連線失敗"+str(e))
+def conn(name, pword, db, mysqldb = None, cursor = None):
+    try:
+        mysqldb = mysql.connect( 
+                host = host,
+                user = name,
+                password = pword,
+                database = db,
+                raise_on_warnings = True,
+                charset = 'utf8'
+            )
+    except Exception as e:
+        print(e)
+    else:
+        if mysqldb.is_connected():
+            print('資料庫名稱: ', db)
+            cursor = mysqldb.cursor()
+    return mysqldb, cursor
+mysqldb,cursor = conn(username,password,database)
 #sql = "SELECT * FROM Identify "
 sql = '''SELECT*FROM Identify where exercise='二頭彎舉';'''
 try:
