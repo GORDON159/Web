@@ -26,13 +26,10 @@ def conn(name, pword, db, mysqldb = None, cursor = None):
 mysqldb,cursor = conn(username,password,database)
 #sql = "SELECT * FROM Identify "
 sql = '''SELECT*FROM Identify where exercise='二頭彎舉';'''
-try:
-    cursor.execute(sql)
-    result=cursor.fetchall()
-    result= pd.DataFrame(result)
-    result.columns=['exercise','grade','suggest','flag','TIME','name']
-    line_chart_data = result['grade']
-    line_chart_data = pd.DataFrame(line_chart_data)
-    line_chart = st.line_chart(line_chart_data)
-except:
-    print('幹')
+cursor.execute(sql)
+result=cursor.fetchall()
+result= pd.DataFrame(result)
+result.columns=['exercise','grade','suggest','flag','TIME','name']
+line_chart_data = result['grade']
+line_chart_data = pd.DataFrame(line_chart_data)
+line_chart = st.line_chart(line_chart_data)
