@@ -34,7 +34,7 @@ d = st.date_input("請選擇日期")
 sql='''SELECT*FROM Identify where TIME='%s';'''%(str(d))
 cursor.execute(sql)
 re=cursor.fetchall()
-re= pd.DataFrame(res)
+re= pd.DataFrame(re)
 st.table(re)
 try:
     sql = '''SELECT*FROM Identify where exercise='二頭彎舉' and TIME='%s';'''%(str(d))
