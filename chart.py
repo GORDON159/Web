@@ -30,7 +30,10 @@ def conn(name, pword, db, mysqldb = None, cursor = None):
 mysqldb,cursor = conn(username,password,database)
 
 d = st.date_input("請選擇日期")
-
+sql='''SELECT*FROM accountnow'''
+cursor.execute(sql)
+res=cursor.fetchall()
+write(res)
 try:
     sql = '''SELECT*FROM Identify where exercise='二頭彎舉' and TIME='%s';'''%(str(d))
     cursor.execute(sql)
