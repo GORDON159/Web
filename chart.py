@@ -35,6 +35,7 @@ sql='''SELECT*FROM Identify where TIME='%s';'''%(str(d))
 cursor.execute(sql)
 re=cursor.fetchall()
 re= pd.DataFrame(re)
+re.columns=['exercise','grade','suggest','TIME','times']
 st.table(re)
 try:
     sql = '''SELECT*FROM Identify where exercise='二頭彎舉' and TIME='%s';'''%(str(d))
