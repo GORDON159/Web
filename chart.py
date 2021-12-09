@@ -34,7 +34,11 @@ sql='''SELECT*FROM accountnow'''
 cursor.execute(sql)
 res=cursor.fetchall()
 res= pd.DataFrame(res)
-write(res)
+sql='''SELECT*FROM Identify'''
+cursor.execute(sql)
+re=cursor.fetchall()
+re= pd.DataFrame(res)
+st.table(re)
 try:
     sql = '''SELECT*FROM Identify where exercise='二頭彎舉' and TIME='%s';'''%(str(d))
     cursor.execute(sql)
