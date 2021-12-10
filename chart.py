@@ -34,7 +34,7 @@ sql='''SELECT*FROM accountnow;'''
 cursor.execute(sql)
 result=cursor.fetchone()
 result=list(result)
-sql='''SELECT `exercise`, `grade`, `suggest`, `TIME`, `times` FROM Identify where TIME='%s' and name='%s';'''%(str(d),result[0])
+sql='''SELECT `exercise`,`times`, `grade`, `suggest`, `TIME` FROM Identify where TIME='%s' and name='%s';'''%(str(d),result[0])
 cursor.execute(sql)
 re=cursor.fetchall()
 list1 = list(re)
