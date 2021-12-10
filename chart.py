@@ -30,8 +30,11 @@ def conn(name, pword, db, mysqldb = None, cursor = None):
 mysqldb,cursor = conn(username,password,database)
 
 d = st.date_input("請選擇日期")
-
-sql='''SELECT*FROM Identify where TIME='%s';'''%(str(d))
+sql='''SELECT*FROM accountnow;'''
+cursor.execute(sql)
+result=cursor.fetchone()
+result=list(result)
+sql='''SELECT `exercise`, `grade`, `suggest`, `TIME`, `times` FROM Identify where TIME='%s';'''%(result[0])
 cursor.execute(sql)
 re=cursor.fetchall()
 re= pd.DataFrame(re)
