@@ -38,7 +38,7 @@ sql='''SELECT `exercise`, `grade`, `suggest`, `TIME`, `times` FROM Identify wher
 cursor.execute(sql)
 re=cursor.fetchall()
 list1 = list(re)
-re= pd.DataFrame(re, columns=('運動','分數','建議','日期','次數'),index=(''for i in range(len(list1))))
+re= pd.DataFrame(re, columns=('運動','分數','建議','日期','次數'))
 
 st.table(re)
 try:
