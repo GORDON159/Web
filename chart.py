@@ -54,13 +54,12 @@ try:
     y_axis_label='分數',
     title='二頭彎舉')
     p.title.text_font_size = '30pt'
-    #p.title.text_font_family = "DFKai-SB"
+    
     p.title_location='above'
     p.xaxis.axis_label_text_font_size = "20pt"
     p.xaxis.axis_label_text_font_style = "bold"
-    #p.xaxis.axis_label_text_font_family = "DFKai-SB"
     p.xaxis.major_label_text_font_size = "15pt"
-    
+    st.write("沒料")
     p.yaxis.axis_label_text_font_size = "20pt"
     p.yaxis.axis_label_text_font_style = "DFKai-SB"
     p.yaxis.major_label_text_font_size = "15pt"
