@@ -53,10 +53,10 @@ try:
     x_axis_label='次數',
     y_axis_label='分數')
     st.write("沒")
-    p.x_axis_label_text_font_size = "30"
+    p.x_axis_label_text_font_size = "30pt"
     st.write("有")
     p.x_axis_label_text_font_style = "bold"
-    p.y_axis_label_text_font_size = "30"
+    p.y_axis_label_text_font_size = "30pt"
     p.y_axis_label_text_font_style = "bold"
     p.line(x, y, legend_label='Score', line_width=2)
     st.bokeh_chart(p, use_container_width=False)
