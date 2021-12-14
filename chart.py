@@ -55,7 +55,7 @@ try:
     title='二頭彎舉')
     p.title.text_font_size = '30pt'
     
-    p.title_location='center top'
+    p.title_location='center'
     p.xaxis.axis_label_text_font_size = "20pt"
     p.xaxis.axis_label_text_font_style = "bold"
     p.xaxis.major_label_text_font_size = "15pt"
