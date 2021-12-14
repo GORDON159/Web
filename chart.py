@@ -54,7 +54,7 @@ try:
     y_axis_label='分數',
     title='二頭彎舉')
     p.title.text_font_size = '30pt'
-    p.title_location_align='center'
+    p.title.align= "right"
     p.xaxis.axis_label_text_font_size = "20pt"
     p.xaxis.axis_label_text_font_style = "bold"
     p.xaxis.major_label_text_font_size = "15pt"
