@@ -55,13 +55,13 @@ try:
     title='二頭彎舉')
     p.title.text_font_size = '30pt'
     
-    p.title_location='above'
+    p.title_location='center_top'
     p.xaxis.axis_label_text_font_size = "20pt"
     p.xaxis.axis_label_text_font_style = "bold"
     p.xaxis.major_label_text_font_size = "15pt"
     st.write("沒料")
     p.yaxis.axis_label_text_font_size = "20pt"
-    p.yaxis.axis_label_text_font_style = "DFKai-SB"
+    p.yaxis.axis_label_text_font_style = "bold"
     p.yaxis.major_label_text_font_size = "15pt"
     p.line(x, y, legend_label='Score', line_width=4 , line_color = 'black')
     st.bokeh_chart(p, use_container_width=False)
