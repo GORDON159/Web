@@ -52,9 +52,9 @@ try:
     p=figure(
     x_axis_label='次數',
     y_axis_label='分數')
-    print("~")
+    st.write("沒")
     p.x_axis_label_text_font_size = "30"
-    print("123")
+    st.write("有")
     p.x_axis_label_text_font_style = "bold"
     p.y_axis_label_text_font_size = "30"
     p.y_axis_label_text_font_style = "bold"
