@@ -60,7 +60,7 @@ try:
     p.yaxis.axis_label_text_font_size = "30pt"
     p.yaxis.axis_label_text_font_style = "bold"
     p.yaxis.major_label_text_font_size = "15pt"
-    p.line(x, y, legend_label='Score', line_width=4)
+    p.line(x, y, legend_label='Score', line_width=4 , line_color = 'black')
     st.bokeh_chart(p, use_container_width=False)
 except:
     st.write("沒有資料")
