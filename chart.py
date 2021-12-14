@@ -51,7 +51,8 @@ try:
     y = result['grade']
     p=figure(
     x_axis_label='次數',
-    y_axis_label='分數')
+    y_axis_label='分數',
+    title='二頭彎舉')
     
     p.xaxis.axis_label_text_font_size = "30pt"
     p.xaxis.axis_label_text_font_style = "bold"
