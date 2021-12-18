@@ -46,7 +46,7 @@ try:
     cursor.execute(sql)
     result=cursor.fetchall()
     result= pd.DataFrame(result)
-    result.columns=['exercise','grade','suggest','flag','TIME','name','times']
+    result.columns=['exercise','suggest','grade','TIME','name','times']
     x = result['times']
     y = result['grade']
     p=figure(
@@ -70,7 +70,7 @@ try:
     cursor.execute(sql)
     result=cursor.fetchall()
     result= pd.DataFrame(result)
-    result.columns=['exercise','grade','suggest','flag','TIME','name','times']
+    result.columns=['exercise','suggest','grade','TIME','name','times']
     x = result['times']
     y = result['grade']
     p=figure(
@@ -94,7 +94,7 @@ try:
     cursor.execute(sql)
     result=cursor.fetchall()
     result= pd.DataFrame(result)
-    result.columns=['exercise','grade','suggest','flag','TIME','name','times']
+    result.columns=['exercise','suggest','grade','TIME','name','times']
     x = result['times']
     y = result['grade']
     p=figure(
@@ -118,7 +118,7 @@ try:
     cursor.execute(sql)
     result=cursor.fetchall()
     result= pd.DataFrame(result)
-    result.columns=['exercise','grade','suggest','flag','TIME','name','times']
+    result.columns=['exercise','suggest','grade','TIME','name','times']
     x = result['times']
     y = result['grade']
     p=figure(
@@ -142,7 +142,7 @@ try:
     cursor.execute(sql)
     result=cursor.fetchall()
     result= pd.DataFrame(result)
-    result.columns=['exercise','grade','suggest','flag','TIME','name','times']
+    result.columns=['exercise','suggest','grade','TIME','name','times']
     x = result['times']
     y = result['grade']
     p=figure(
@@ -166,7 +166,7 @@ try:
     cursor.execute(sql)
     result=cursor.fetchall()
     result= pd.DataFrame(result)
-    result.columns=['exercise','grade','suggest','flag','TIME','name','times']
+    result.columns=['exercise','suggest','grade','TIME','name','times']
     x = result['times']
     y = result['grade']
     p=figure(
