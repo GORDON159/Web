@@ -71,7 +71,6 @@ try:
     result=cursor.fetchone()
     result=list(result)
     sql = '''SELECT*FROM Identify where exercise='平舉(左)' and TIME='%s' and name='%s';'''%(str(d),result[0])
-    st.write(sql)
     cursor.execute(sql)
     result=cursor.fetchall()
     result= pd.DataFrame(result)
@@ -95,6 +94,10 @@ try:
 except:
     st.write("平舉(左)沒有資料")
 try:
+    sql='''SELECT*FROM accountnow;'''
+    cursor.execute(sql)
+    result=cursor.fetchone()
+    result=list(result)
     sql = '''SELECT*FROM Identify where exercise='平舉(右)' and TIME='%s' and name='%s';'''%(str(d),result[0])
     cursor.execute(sql)
     result=cursor.fetchall()
@@ -119,6 +122,10 @@ try:
 except:
     st.write("平舉(右)沒有資料")
 try:
+    sql='''SELECT*FROM accountnow;'''
+    cursor.execute(sql)
+    result=cursor.fetchone()
+    result=list(result)
     sql = '''SELECT*FROM Identify where exercise='相撲式硬舉' and TIME='%s' and name='%s';'''%(str(d),result[0])
     cursor.execute(sql)
     result=cursor.fetchall()
@@ -143,6 +150,10 @@ try:
 except:
     st.write("相撲式硬舉沒有資料")
 try:
+    sql='''SELECT*FROM accountnow;'''
+    cursor.execute(sql)
+    result=cursor.fetchone()
+    result=list(result)
     sql = '''SELECT*FROM Identify where exercise='弓箭步伸展(左)' and TIME='%s' and name='%s';'''%(str(d),result[0])
     cursor.execute(sql)
     result=cursor.fetchall()
@@ -167,6 +178,10 @@ try:
 except:
     st.write("弓箭步伸展(左)沒有資料")
 try:
+    sql='''SELECT*FROM accountnow;'''
+    cursor.execute(sql)
+    result=cursor.fetchone()
+    result=list(result)
     sql = '''SELECT*FROM Identify where exercise='弓箭步伸展(右)' and TIME='%s' and name='%s';'''%(str(d),result[0])
     cursor.execute(sql)
     result=cursor.fetchall()
