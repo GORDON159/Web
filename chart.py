@@ -68,11 +68,11 @@ except:
 try:
     sql1 = '''SELECT*FROM Identify where exercise='平舉(左)' and TIME='%s' and name='%s';'''%(str(d),result[0])
     cursor.execute(sql1)
-    result=cursor.fetchall()
-    result= pd.DataFrame(result)
-    result.columns=['exercise','suggest','grade','TIME','name','times']
-    x = result['times']
-    y = result['grade']
+    result1=cursor.fetchall()
+    result1= pd.DataFrame(result1)
+    result1.columns=['exercise','suggest','grade','TIME','name','times']
+    x = result1['times']
+    y = result1['grade']
     p=figure(
     x_axis_label='次數',
     y_axis_label='分數',
