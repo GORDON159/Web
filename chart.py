@@ -86,9 +86,9 @@ try:
     p1.yaxis.axis_label_text_font_style = "bold"
     p1.yaxis.major_label_text_font_size = "15pt"
     p1.line(x, y, legend_label='Score', line_width=4 , line_color = 'black')
-    st1.bokeh_chart(p1, use_container_width=False)
+    st.bokeh_chart(p1, use_container_width=False)
 except:
-    st1.write("平舉(左)沒有資料")
+    st.write("平舉(左)沒有資料")
 try:
     sql = '''SELECT*FROM Identify where exercise='平舉(右)' and TIME='%s' and name='%s';'''%(str(d),result[0])
     cursor.execute(sql)
