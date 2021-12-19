@@ -66,7 +66,7 @@ try:
 except:
     st.write("二頭彎舉沒有資料")
 sql = '''SELECT*FROM Identify where exercise='平舉(左)' and TIME='%s' and name='%s';'''%(str(d),result[0])
-if(sql='none'):    
+if(sql=='none'):    
     cursor.execute(sql)
     result=cursor.fetchall()
     result= pd.DataFrame(result)
