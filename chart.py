@@ -65,27 +65,30 @@ try:
     st.bokeh_chart(p, use_container_width=False)
 except:
     st.write("二頭彎舉沒有資料")
-sql = '''SELECT*FROM Identify where exercise='平舉(左)' and TIME='%s' and name='%s';'''%(str(d),result[0])    
-cursor.execute(sql)
-result=cursor.fetchall()
-result= pd.DataFrame(result)
-result.columns=['exercise','suggest','grade','TIME','name','times']
-x = result['times']
-y = result['grade']
-p=figure(
-x_axis_label='次數',
-y_axis_label='分數',
-title='平舉(左)')
-p.title.text_font_size = '30pt'
-p.title.align= "center"
-p.xaxis.axis_label_text_font_size = "20pt"
-p.xaxis.axis_label_text_font_style = "bold"
-p.xaxis.major_label_text_font_size = "15pt"
-p.yaxis.axis_label_text_font_size = "20pt"
-p.yaxis.axis_label_text_font_style = "bold"
-p.yaxis.major_label_text_font_size = "15pt"
-p.line(x, y, legend_label='Score', line_width=4 , line_color = 'black')
-st.bokeh_chart(p, use_container_width=False)
+try:
+    sql = '''SELECT*FROM Identify where exercise='平舉(左)' and TIME='%s' and name='%s';'''%(str(d),result[0])    
+    cursor.execute(sql)
+    result=cursor.fetchall()
+    result= pd.DataFrame(result)
+    result.columns=['exercise','suggest','grade','TIME','name','times']
+    x = result['times']
+    y = result['grade']
+    p=figure(
+    x_axis_label='次數',
+    y_axis_label='分數',
+    title='平舉(左)')
+    p.title.text_font_size = '30pt'
+    p.title.align= "center"
+    p.xaxis.axis_label_text_font_size = "20pt"
+    p.xaxis.axis_label_text_font_style = "bold"
+    p.xaxis.major_label_text_font_size = "15pt"
+    p.yaxis.axis_label_text_font_size = "20pt"
+    p.yaxis.axis_label_text_font_style = "bold"
+    p.yaxis.major_label_text_font_size = "15pt"
+    p.line(x, y, legend_label='Score', line_width=4 , line_color = 'black')
+    st.bokeh_chart(p, use_container_width=False)
+except:
+    st.write("平舉(左)沒有資料")
 try:
     sql = '''SELECT*FROM Identify where exercise='平舉(右)' and TIME='%s' and name='%s';'''%(str(d),result[0])
     cursor.execute(sql)
